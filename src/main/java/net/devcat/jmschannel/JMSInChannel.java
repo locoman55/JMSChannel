@@ -31,14 +31,14 @@ public class JMSInChannel extends JMSChannel implements Runnable {
     }
 
     public int getMessagesReceived() {
-		return messagesReceived;
-	}
+        return messagesReceived;
+    }
 
-	public void setMessagesReceived(int messagesReceived) {
-		this.messagesReceived = messagesReceived;
-	}
+    public void setMessagesReceived(int messagesReceived) {
+        this.messagesReceived = messagesReceived;
+    }
 
-	public synchronized void start() {
+    public synchronized void start() {
         running = true;
     }
 	

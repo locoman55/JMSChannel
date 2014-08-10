@@ -9,4 +9,6 @@ public interface JMSChannelMessage {
     TextMessage getTextMessage(String text) throws JMSChannelException;
 
     ObjectMessage getObjectMessage(Object obj) throws JMSChannelException;
+
+    BytesMessage getBytesMessage(byte[] bytes) throws JMSChannelException;
 }

@@ -23,14 +23,14 @@ public class JMSOutChannel extends JMSChannel {
     }
 	
     public int getMessagesSent() {
-		return messagesSent;
-	}
+        return messagesSent;
+    }
 
-	public void setMessagesSent(int messagesSent) {
-		this.messagesSent = messagesSent;
-	}
+    public void setMessagesSent(int messagesSent) {
+        this.messagesSent = messagesSent;
+    }
 
-	public void sendMsg(Message message) throws JMSChannelException {
+    public void sendMsg(Message message) throws JMSChannelException {
         try {
             producer.send(message);
         } catch (JMSException e) {

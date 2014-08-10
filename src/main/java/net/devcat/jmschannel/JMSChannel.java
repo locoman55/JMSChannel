@@ -6,6 +6,7 @@ import javax.jms.Connection;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.ObjectMessage;
+import javax.jms.BytesMessage;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
@@ -93,6 +94,18 @@ public abstract class JMSChannel implements JMSChannelMessage {
         try {
             message = session.createObjectMessage();
             message.setObject((Serializable) obj);
+        } catch (JMSException e) {
+            throw new JMSChannelException(e.getMessage());
+        }
+        return message;
+    }
+
+    public BytesMessage getBytesMessage(byte[] bytes)
+                throws JMSChannelException {
+        BytesMessage message = null;
+        try {
+            message = session.createBytesMessage();
+            message.writeBytes(bytes);
         } catch (JMSException e) {
             throw new JMSChannelException(e.getMessage());
         }
